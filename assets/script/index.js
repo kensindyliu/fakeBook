@@ -58,20 +58,20 @@ function publishPost(){
     newPostMsgHTML += '</div>';
     newPostMsgHTML += '<div class="postContent">';
     newPostMsgHTML += `<p>${txtPostMsg.value.trim()}</p>`;
-    newPostMsgHTML += '<div id="postPic"></div>';
+    if(picHTML != ''){
+        newPostMsgHTML += '<div id="postPic"></div>';
+    }
     newPostMsgHTML += '</div>';
     newPostMsgHTML += '</div>';
     const newDiv = create('div');
     newDiv.innerHTML = newPostMsgHTML;
-    console.log('1');
-    if(picHTML != null){
+    if(picHTML != ''){
         const postPicElement = newDiv.querySelector('#postPic');
         postPicElement.classList.add('postPic');
         postPicElement.style.backgroundImage = `url(${picHTML})`;
         picHTML = '';
-    }
+    } 
     postList.prepend(newDiv);
-    console.log('12');
     txtPostMsg.value = '';
     fileName.innerText = '';
 }
