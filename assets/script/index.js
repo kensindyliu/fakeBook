@@ -63,6 +63,7 @@ function publishPost(){
     }
     newPostMsgHTML += '</div>';
     newPostMsgHTML += '</div>';
+    newPostMsgHTML += '<div class="splitter"></div>';
     const newDiv = create('div');
     newDiv.innerHTML = newPostMsgHTML;
     if(picHTML != ''){

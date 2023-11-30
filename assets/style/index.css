@@ -148,6 +148,7 @@ main {
 
 .postList {
     background-color: white;
+    border-radius: 5px;
 }
 
 .postList p, div {
@@ -215,4 +216,10 @@ main {
     color: white;
     opacity: 1;
     padding: 50px;
+}
+
+.splitter {
+    width: 100%;
+    height: 10px;
+    background-color:black;
 }
