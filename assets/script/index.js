@@ -20,22 +20,28 @@ addImg.addEventListener('click', ()=>{
     fileInput.click();
 })
 
-let imgData = null;
+// const preview = document.getElementById('postPic');
+let picHTML = '';
+const fileName = select('.fileName');
 fileInput.addEventListener('change', function (event) {
-    const filename = select('.fileName');
-    filename.innerText = event.target.files[0].name;
-    const reader = new FileReader();
+    const selectedFile = event.target.files[0];
+    if (selectedFile) {
+        const reader = new FileReader();
+        fileName.innerText = selectedFile.name;
+        reader.onload = function (e) {
+            const imgData = e.target.result;
+            picHTML = imgData;
+        }
 
-    reader.onload = function (e) {
-        imgData = e.target.result;
+        reader.readAsDataURL(selectedFile); // Read the file as a data URL
     }
 });
+
 
 const btnPost = select('#post');
 onEvent('click', btnPost, publishPost);
 const txtPostMsg = select('#postMsg');
 const postList = select('.postList');
-const fileName = select('.fileName');
 txtPostMsg.value = '';
 fileName.innerText = '';
 function publishPost(){
@@ -57,12 +63,11 @@ function publishPost(){
     newPostMsgHTML += '</div>';
     const newDiv = create('div');
     newDiv.innerHTML = newPostMsgHTML;
-    console.log(imgData);
-    if(imgData != null){
+    if(picHTML != null){
         const postPicElement = newDiv.querySelector('#postPic');
         postPicElement.classList.add('postPic');
-        postPicElement.style.backgroundImage = 'url(imgData)';
-        imgData = null;
+        postPicElement.style.backgroundImage = `url(${picHTML})`;
+        picHTML = '';
     }
     postList.prepend(newDiv);
     txtPostMsg.value = '';
