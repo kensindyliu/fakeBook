@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Liu zhixin">
+        <meta name="description" content="Liu zhixin; web developer">
+        <meta name="keywords" content="web developer, front-end, html, css, javascript, react, sql">
+        <title>Fakebook</title>
+
+        <!-- using icons from fontawesome -->
+        <script src="https://kit.fontawesome.com/3f60ee6457.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="./assets/style/index.css">
+        <link rel="stylesheet" href="./assets/style/reset.css">
+
+        <!-- <script src="./assets/script/index.js" type="module"></script> -->
+        <script src="./assets/script/index.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <div class="title">Fakebook</div>
+            <div class="menu">
+                    <a href="#">Friends</a>
+                    <a href="#">Pages</a>
+                    <a href="#">Groups</a>
+                    <a href="#">My ads</a>
+                    <a href="#">Settings</a>
+            </div>
+            <div class="userInfo"></div>
+        </header>
+        <main>
+            <div class="inputArea">
+                <input type="file" id="fileInput" accept=".png, .jpeg, .jpg" style="display: none;">
+                <textarea type="text" id="postMsg" placeholder="What's new, Ken?"></textarea>
+                <div class="operationArea">
+                    <div class="imgOperation">
+                        <div class="addImg"></div>
+                        <div id="imgs"><p class="fileName"></p></div>
+                    </div>
+                    <button type="button" id="post">Post</button>
+                </div>
+            </div>
+            <div class="postList">
+                <div>
+                    <div class="postTitle">
+                        <div class="subPostTitle">
+                            <div class="userInfo"></div>
+                            <p>Ken Liu</p>
+                        </div>
+                        <p>Nov 19 2023</p>
+                    </div>
+                    <div class="postContent">
+                        <p>alsdfjlaskdfjlasdjflasjflasdkfj</p>
+                        <div id="postPic"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
