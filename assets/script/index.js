@@ -45,7 +45,7 @@ const postList = select('.postList');
 txtPostMsg.value = '';
 fileName.innerText = '';
 function publishPost(){
-    if(txtPostMsg.value.trim().length == 0 && imgData == null){
+    if(txtPostMsg.value.trim().length == 0 && picHTML == ''){
         return;
     }
     let newPostMsgHTML = '<div>';
@@ -63,6 +63,7 @@ function publishPost(){
     newPostMsgHTML += '</div>';
     const newDiv = create('div');
     newDiv.innerHTML = newPostMsgHTML;
+    console.log('1');
     if(picHTML != null){
         const postPicElement = newDiv.querySelector('#postPic');
         postPicElement.classList.add('postPic');
@@ -70,6 +71,7 @@ function publishPost(){
         picHTML = '';
     }
     postList.prepend(newDiv);
+    console.log('12');
     txtPostMsg.value = '';
     fileName.innerText = '';
 }
