@@ -198,8 +198,20 @@ main {
 }
 
 .userInfoDiv {
-    opacity: 0.5;
-    background-color: var(--ap-background-color-other);
+    background-color: rgba(86, 86, 86, 0.5);
     width: 100%;
     height: 100vh;
+    display: flex;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    justify-content: center; 
+    align-items: center;
+}
+
+.InfoText {
+    background-color: var(--app-background-color);
+    color: white;
+    opacity: 1;
+    padding: 50px;
 }

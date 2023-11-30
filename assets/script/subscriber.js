@@ -1,4 +1,4 @@
-import User from 'User.js';
+import {User} from './user.js';
 
 export class Subscriber extends User {
     #pages;

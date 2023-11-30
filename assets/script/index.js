@@ -2,7 +2,6 @@
 import { User } from "./user.js";
 import { Subscriber } from "./subscriber.js";
 
-
 function onEvent(event, selector, callback){
     return selector.addEventListener(event, callback);
 }
@@ -76,25 +75,27 @@ function formatDate(date) {
 }
 
 //show info
-const userInfo = new User('123', 'Ken Liu', 'kenliu', 'ken@gmail.com');
+const userInfoC = new User('123', 'Ken Liu', 'kenliu', 'ken@gmail.com');
 const subscriber = new Subscriber('123', 'Ken Liu', 'kenliu', 'ken@gmail.com', 'page1024', 'Group 1', true)
 const userInfoIcon = select('.userInfo');
 onEvent('click', userInfoIcon, showInfo);
 function showInfo(){
-    const userInfo = userInfo.getInfo();
-    let infoHTML = '<h2>User Info</h2>';
-    infoHTML = `<p><span>User ID: </span>${userInfo.id}</p>`;
+    const userInfo = userInfoC.getInfo();
+    let infoHTML = '<div class="InfoText"><h2>User Info</h2>';
+    infoHTML += `<p><span>User ID: </span>${userInfo.id}</p>`;
     infoHTML += `<p><span>Name</span>: ${userInfo.name}</p>`;
     infoHTML += `<p><span>UserName</span>: ${userInfo.userName}</p>`;
     infoHTML += `<p><span>Email</span>: ${userInfo.email}</p>`;
     infoHTML += '<h2>Subscriber Info</h2>';
     infoHTML += `<p><span>Pages: ${subscriber.page}</span></p>`;
     infoHTML += `<p><span>Groups: ${subscriber.groups}</span></p>`;
-    infoHTML += `<p><span>Monetize: ${subscriber.canMonetize? 'Yes':'No'}</span></p>`;
+    infoHTML += `<p><span>Monetize: ${subscriber.canMonetize? 'Yes':'No'}</span></p></div>`;
     const infoDiv = create('div');
     infoDiv.classList.add('userInfoDiv');
+    infoDiv.innerHTML = infoHTML;
     document.body.appendChild(infoDiv);
-    infoDiv.addEventListener(()=>{
+    console.log('infoDiv');
+    infoDiv.addEventListener('click', ()=>{
         document.body.removeChild(infoDiv);
     })
 }
